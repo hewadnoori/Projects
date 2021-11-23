@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC: Product Landing Page</title>
+    <style>
+        :root{
+            --background: rgba(85,214,170,.9);
+        }
+        *,*::before, *::after{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            background: #222;
+            font-family: sans-serif;
+            font-weight: 300;
+            color: white;
+        }
+        #container{
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        header{
+            background: var(--background);
+            text-align: center;
+            position:fixed;
+            width: 100%;
+            z-index: 999;
+            display: grid;
+            grid-template-columns: 1fr auto minmax(600px, 1fr);
+            top:0;
+        }
+        #header-img{
+            grid-column: 1/2;
+        }
+
+        nav{
+            grid-column: 3/4;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        nav ul{
+            margin:0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-bottom: 0em;
+            margin-left: 3em;
+            margin-right:1em
+        }
+        nav a{
+            color:white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        nav a:hover{
+          color: black;
+        }
+        
+        nav a::before{
+            content: "";
+            display:block;
+            height: 5px;
+            background: black;
+            position: absolute;
+            top: -.75em;
+            left: 0;
+            right: 0;
+            transform: scale(0,1);
+            transform-origin: right;
+            transition: transform ease-in-out 250ms;
+        }
+        nav a:hover::before{
+            transform: scale(1,1);
+        }
+        h1{
+            text-align: center;
+            margin-top: 100px;
+        }
+        #form{
+            text-align: center;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-control{
+            border-radius: 20px;
+        }
+        #submit{
+            margin-top: 20px;
+            border-radius: 20px;
+            background-color: var(--background);
+            font-weight: 400;
+            border: 0;
+            margin-bottom: 15px;
+        }
+        #submit:hover{
+            background-color: rgba(242, 0, 250, 0.9);
+            transition: background-color 1s;
+        }
+        #features{
+            text-align: center;
+        }
+        .youtube{ 
+            padding:3em;
+            margin: 0 auto;
+            width: 700px;
+        }
+        .youtube-wrapper iframe{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top:0px;
+            right: 0px;
+            bottom: 0px;
+        }
+        .youtube-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0px;
+        }
+        .btn{
+            border-radius: 20px;
+        }
+        #pricing{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .price-description{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: calc(100% /3);
+            margin: 10px;
+            border: 1px solid white;  
+        }
+        .level{
+            background-color: var(--background);
+            padding: 15px 0;
+            width:100%;
+            font-weight: 700;
+        }
+        .price-description h2{
+            margin-top: 15px;
+        }
+        .price-description ol{
+            margin: 15px 0;
+        }
+        .price-description ol li{
+            padding: 5px 0;
+        }
+        .price-description button{
+            background-color: var(--background);
+            font-weight: 400;
+            border: 0;
+            margin-bottom: 15px;
+        }
+        .price-description button:hover{
+            background-color: rgba(242, 0, 250, 0.9);
+            transition: background-color 1s;
+        }
+        ol{
+            max-width: 550px;
+            margin-right: auto;
+            margin-left: auto;
+            list-style-type: none;
+            padding: 10px 0px;
+        }
+        @media (max-width: 500px){
+            .youtube{
+                width: 300px;
+            }
+        }
+        footer{
+            margin-top: 3px;
+            background-color: var(--background);
+            padding:3px;
+        }
+        footer ul{
+            display: flex;
+            justify-content: flex-end;
+            list-style-type: none;
+        }
+        footer > ul > li{
+            padding: 0px 10px;
+        }
+        footer span{
+            margin-top: 1px;
+            display: flex;
+            justify-content: flex-end;
+            font-size:.9em;
+            color: #444;
+            padding-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header id="header">
+        <img src="images/campCampLogo.gif" alt="logo" id="header-img">
+        <nav id="nav-bar">
+            <ul>
+                <li><a href="#features" class="nav-link">Features</a></li >
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="container">
+    <h1>Welcome to Camp Camp!</h1>
+    <form id="form" action="https://www.freecodecamp.com/email-submit" method="get">
+        <div class="form-group">
+            <label for="email" id="email-label"></label>
+            <input type="email" 
+            placeholder="Enter your email address" 
+            required id="email" 
+            name="email"
+            class="form-control"
+            >
+        </div>
+            
+        <div>
+            <input type="submit" id="submit" value="Get Started"></input>
+        </div>
+            
+    </form>
+    <div id="features">
+        <h3>The best camp</h3>
+        <p>Our camp has everything a kid would ever want! Lazer tag, paintball wars, cooking battles, yoga, gaming tournaments, and many more!</p>
+        <h3>Voted #1 Camp in the world!</h3>
+        <p>Camp Camp has been the #1 Camp in the world for 3 years in a row! With our award winning campground, your child is in safe hands.</p>
+        <h3>Satisfaction Guaranteed!</h3>
+        <p>We're so confident that we offer a 100% refund if you or your child are unsatisfied with your experience.</p>
+    </div>
+    <div class="youtube" id="how-it-works">
+        <div class="youtube-wrapper">
+            <center>
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/rMFVPCIW1zI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+    </div>
+    <div id="pricing">
+        <div id="two-week" class="price-description">
+            <div class="level">Two-Week Tuition</div>
+            <h2>$2000</h2>
+            <ol>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem, ipsum.</li>
+            </ol>
+            <button class="btn">Select</button>
+        </div>
+        <div id="four-week" class="price-description">
+            <div class="level">Four-Week Tuition</div>
+            <h2>$3700</h2>
+            <ol>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem, ipsum.</li>
+            </ol>
+            <button class="btn">Select</button>
+        </div>
+        <div id="eight-week" class="price-description">
+            <div class="level">Eight-Week Tuition</div>
+            <h2>$7000</h2>
+            <ol>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum dolor.</li>
+                <li>Lorem, ipsum.</li>
+            </ol>
+            <button class="btn">Select</button>
+        </div>    
+    </div>
+    <footer>
+        <ul>
+            <li><a href="">Privacy</a></li>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        <span>
+            Copyright 2016, Camp Camp
+        </span>
+    </footer>
+</div>
+</body>
+</html>
