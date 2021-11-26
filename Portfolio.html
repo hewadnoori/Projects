@@ -17,6 +17,68 @@
             font-family: 'Poppins', sans-serif;
             list-style: none;
         }
+        .showcase{
+            position: absolute;
+            right: 0;
+            width: 100%;
+            min-height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            color: white;
+            z-index: 3;
+        }
+        .showcase header{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 50px;
+            z-index: 999;
+            display: flex;
+            align-items: center; /*moves things horizontal*/
+            justify-content: space-between; /*moves things verticale*/
+        }
+        .logo{
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .toggle{
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background: url("imagesVideos/menu_icon.png");
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center; 
+        }
+        
+        .showcase video{
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .8;
+        }
+
+        .overlay{
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background: rgba(231, 1, 252, 0.945);
+            mix-blend-mode: overlay;
+        }
+        .text{
+            position: relative;
+            z-index: 10;
+        }
+        
         .fa {
             padding: 10px;
             margin: 10px 0;
@@ -44,7 +106,7 @@
                 color: white;
             }
             .fa-github{
-                background: rgb(8, 8, 8);
+                background: rgb(0, 0, 0);
                 color: white;
             }
     </style>
@@ -53,12 +115,16 @@
     <section class="showcase">
         <header>
             <h2 class="logo">Travel</h2>
-            <div class="toggle"></div>
+            <div class="toggle">
+                
+            </div>
         </header>
         
         <video src="imagesVideos/video.mp4" muted loop autoplay></video>
         
-        <div class="overylay"></div>
+        <div class="overlay">
+            
+        </div>
 
         <div class="text">
             <h2>Never Stop</h2>
@@ -67,7 +133,7 @@
             <a href="#">Explore</a>
         </div>
         <ul class="social">
-            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="https://www.facebook.com/hewad.noori" class="fa fa-facebook"></a></li>
             <li><a href="#" class="fa fa-twitter"></a></li>
             <li><a href="https://github.com/hewadnoori/Projects" class="fa fa-github">
             </a></li>
