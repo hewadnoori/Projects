@@ -5,123 +5,217 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Travel Landing Page</title>
+    <title>Portfolio</title>
+    <!--Link to background videos https://www.pexels.com/video/plexus-of-abstract-neon-geometrical-lines-with-moving-triangles-and-dots-3129595/ and -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
-
         *{
-            /*This selects everything and resets the margin and the padding to 0, and sets the box sizing property to border box so that if we add any borders or padding, it doesn't affect the overall sizing of the element.*/
-            box-sizing: border-box;
-            padding: 0;
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            list-style: none;
+            padding: 0;
         }
-        .showcase{
-            position: absolute;
-            right: 0;
+        *,
+        *::before
+        *::after{
+            box-sizing: inherit;
+        }
+        html{
+            box-sizing: border-box;
+            font-size:62.5;
+            scroll-behavior:smooth;
+        }
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        header{
+            background:#F76C6C;
+            display: grid;
             width: 100%;
-            min-height: 100vh;
-            padding: 100px;
+            z-index: 999;
+            top: 0px;
+            left: 0;
+            position: fixed;
+            grid-template-columns: 1fr auto minmax(600px, 1fr);   
+        }
+        h1{
+            font-family: 'Raleway', sans-serif;
+        }
+        #welcome-section{
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
             color: white;
+        }
+        .overlay{
+            position: absolute;
+            background:rgba(231, 1, 252, 0.945);
+            width: 100%;
+            height: 100vh;
+            mix-blend-mode: overlay;
+        }
+        #welcome-section h1{
             z-index: 3;
         }
-        .showcase header{
-            position: absolute;
-            top: 0;
-            left: 0;
+        #welcome-section p{
+            z-index: 3;
+        }
+        #welcome-section video{
             width: 100%;
-            padding: 40px 50px;
-            z-index: 20;
-            display: flex;
-            align-items: center; /*moves things horizontal*/
-            justify-content: space-between; /*moves things verticale*/
-        }
-        .logo{
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-        .toggle{
-            position: relative;
-            width: 60px;
-            height: 60px;
-            background: url("imagesVideos/menu_icon.png");
-            background-size: 30px;
-            background-repeat: no-repeat;
-            background-position: center; 
-            filter: invert(1); /*THIS CHANGES THE TOGGLE BUTTON FROM BLACK TO WHITE!!!!!!!!!!!!!*/
-        }
-        
-        .showcase video{
+            height: 100vh;
             position: absolute;
-            top: 0;
-            left:0;
-            width: 100%;
-            height: 100%;
             object-fit: cover;
             opacity: .8;
         }
-
-        .overlay{
-            position: absolute;
-            top: 0;
-            left:0;
-            width: 100%;
-            height: 100%;
-            background: rgba(231, 1, 252, 0.945);
-            mix-blend-mode: overlay;
-        }
-        .text{
-            position: relative;
-            z-index: 10;
-        }
-        .text h2{
-            font-size: 5em; /* em is a multiplier that says whatever the parent containers font size is, multiply that by 5*/
-            font-weight: 800;
-            line-height: 1em;
-            text-transform: none;
-        }
-        .text h3{
-            font-size: 4em; /* em is a multiplier that says whatever the parent containers font size is, multiply that by 5*/
-            font-weight: 500;
-            line-height: 1em;
-            text-transform: none;
-        }
-        .text p{
-            font-size: 1.1em;
-            margin: 20px 0;
-            font-weight: 400;
-            max-width: 700px;
-        }
-        .text a{
-            display: inline-block;
-            font-size: 1em;
-            background: white;
-            text-decoration: none;
-            padding: 10px 30px;
-            color:rgb(0, 0, 0);
-            margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: .2s;
-        }
-        .text a:hover{
-            letter-spacing: 6px;
-            background: rgb(252, 250, 145);
-        }
-        .social{
-            position: absolute;
+        nav{
             display: flex;
-            bottom: 20px;
-            z-index: 10;
+            justify-content: flex-end;
+            grid-column: 3/4;
+            align-items: flex-end;
+            padding: 0px;
+        }
+        nav ul{
+            margin:0;
+            padding: 0;
+            list-style: none;
+            display: flex;
             justify-content: center;
-            align-items: center;
+        }
+
+        nav li {
+            margin-bottom: 0em;
+            margin-left: 3em;
+            margin-right:1em;
+            padding:10px 0;
+        }
+        nav a{
+            color:rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
         }
         
+        nav a:hover{
+          color: black;
+        }
+        
+        nav a::before{
+            content: "";
+            display:block;
+            height: 4px;
+            background: black;
+            position: absolute;
+            top: -.35em;
+            left: 0;
+            right: 0;
+            transform: scale(0,1);
+            transform-origin: right;
+            transition: transform ease-in-out 250ms;
+        }
+        nav a:hover::before{
+            transform: scale(1,1);
+        }
+        #projects{
+            position: relative;
+            width: 100%;
+            height: 140vh; 
+            display: grid;
+            grid-template-columns: 500px;
+            grid-template-rows: 30px;
+            grid-template-columns: repeat(3, 370px);
+            grid-row-gap: 20px;
+            grid-column-gap: 20px ;
+            grid-auto-rows:minmax(50px, 500px) ;
+            justify-content: center;
+            align-content: center;
+        }
+        #projects video{
+            position: absolute;
+            width: 100%;
+            height: 140vh;
+            opacity: .8;
+            object-fit: cover;
+            mix-blend-mode: overlay;
+        }
+        .overlay2{
+            position: absolute;
+            background-color: rgba(22, 252, 1, 0.5);
+            width: 100%;
+            height: 140vh;
+            opacity: .8;
+            object-fit: cover;
+        }
+        .project-header{
+            z-index: 99;
+            justify-self: center;
+            top: 0px;
+            color: white;
+            border-bottom: 1px solid white; /*this*/
+            padding-bottom: px;/*this makes space between the line and the title*/
+            grid-column-start: 1;
+            grid-column-end: -1 ;
+            justify-content: end;
+            align-content: end;
+        }
+        @media (max-width:750px){
+            nav{
+                justify-content: flex-start;
+            }
+
+        }
+        .project-tile{
+            z-index: 99;
+            background-color: crimson;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:end;
+        }
+        .project-tile footer{
+            position: relative;
+            background-color: #F76C6C;
+            padding: 20px 0px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+        .show-all{
+            position: absolute;
+            justify-self: center;
+            align-self: flex-end;
+            padding: 10px;
+            margin-bottom: 60px;
+            background-color: #F76C6C;
+            text-decoration: none;
+            text-underline-position: none;
+            z-index: 99;
+        }
+        .show-all a{
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight:500;
+        
+        }
+        
+        #profile-link{
+            display: flex;
+            flex-direction: column;
+            background-color:#F76C6C;
+            width: 100%;
+            height: 10vh;
+            justify-content: flex-end;
+            justify-items: center;
+            
+            align-items: center;
+        }
+        #profile-link h2{
+            position: relative;
+            color: white;
+            padding: 10px;
+            margin-right: 15px;
+        }
         .fa {
             padding:10px;
             margin-right: 20px;
@@ -132,95 +226,110 @@
             text-align: center;
             text-decoration: none;
             transition: .5s;
-            }
+        }
 
             /* Add a hover effect */
-            .fa:hover {
-                opacity: 0.7;
-                transform:scale(1.5);
-            }
-            /* Facebook */
-            .fa-facebook {
-                background: #3B5998;
-                color: white;
-            }
+        .fa:hover {
+            opacity: 0.7;
+            transform:scale(1.5);
+        }
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
 
             /* Twitter */
-            .fa-twitter {
-                background: #55ACEE;
-                color: white;
-            }
-            .fa-github{
-                background: rgb(0, 0, 0);
-                color: white;
-            }
-            .menu{
-                
-            }
-            .menu ul{
-                z-index: 15;
-                display:grid;
-                grid-template-columns: 100px 100px 100px ;
-                justify-content: end;
-                align-content: center;
-            }
-
-            @media (max-width:750px){
-                .showcase,
-                .showcase header{
-                  padding: 40px;  
-                }
-                .text h2{
-                    font-size: 3em;
-                }
-                .text h3{
-                    font-size: 2em;
-                }
-            }
-
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+        .fa-github{
+            background: rgb(0, 0, 0);
+            color: white;
+        }
+        .social{
+            display: flex;
+            flex-direction: row;
+            z-index: 10;
+            list-style: none;
+            margin-bottom: 10px ;
+        }
+        
     </style>
 </head>
 <body>
-    <main class="container">
-    <section class="showcase">
-        <header>
-            <h2 class="logo">Travel</h2>
-            <div class="toggle">
-                
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Destination</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </header>
-        
-        <video src="imagesVideos/video.mp4" muted loop autoplay></video>
-        
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#welcome-section">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#profile-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header> 
+    
+    <div id="welcome-section">
+
         <div class="overlay">
-            
+
         </div>
 
-        <div class="text">
-            <h2>Never Stop</h2>
-            <h3>Exploring The World</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis in sunt quod consequuntur praesentium explicabo iure, officia inventore quo earum.</p>
-            <a href="#">Explore</a>
+        <h1>Hey I'm Hewad</h1>
+        <p><i>a web developer</i></p>
+        <video src="imagesVideos/video.mp4" muted loop autoplay></video>
+    </div>
+
+    <section id="projects">
+
+        <video src="imagesVideos/video2.mp4" muted loop autoplay></video>
+
+        <div class="overlay2">
+
         </div>
-        <ul class="social">
-            <li><a href="https://www.facebook.com/hewad.noori" class="fa fa-facebook" target="_blank"></a></li>
-            <li><a href="#" class="fa fa-twitter" target="_blank"></a></li>
-            <li><a href="https://github.com/hewadnoori/Projects" class="fa fa-github" target="_blank"></a></li>
-        </ul>
+        <div class="project-header">
+            <h2>These are some of my projects</h2>
+        </div>
+            
+        <div class="project-tile">
+            <img src="" alt="">
+            <footer>
+                <h3>Tribute Page</h3>
+            </footer>
+                
+        </div>
+        <div class="project-tile">
+            <img src="" alt="">
+                <footer>
+                    <h3>Survey Form</h3>
+                </footer>
+            
+        </div>
+        <div class="project-tile">
+            <img src="" alt="">
+                <footer>
+                    <h3>Product Landing Page</h3>
+                </footer>
+            
+        </div>
+        <div class="project-tile">
+            <img src="" alt="">
+                <footer>
+                    <h3>Technical Documentation Page</h3>
+                </footer>
+        </div>
+        <div class="show-all">
+            <a href="https://github.com/hewadnoori/Projects" target="_blank">Show all</a>
+        </div>
     </section>
-    <section class="projects">
-        <img src="imagesVideos/cutePanda.jpg" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam non provident esse impedit, earum quam laudantium voluptas saepe quod. Dolorem, ex. Maxime labore harum culpa laborum? Totam culpa explicabo veritatis?</p>
+    <section class="contact">
+        <div id="profile-link">
+            <h2>Lets work together!</h2>
+            <ul class="social">
+                <li><a href="https://www.facebook.com/hewad.noori" class="fa fa-facebook" target="_blank"></a></li>
+                <li><a href="#" class="fa fa-twitter" target="_blank"></a></li>
+                <li><a href="https://github.com/hewadnoori/Projects" class="fa fa-github" target="_blank"></a></li>
+            </ul> 
+        </div>
     </section>
-    </main>
 </body>
 </html>
