@@ -36,7 +36,7 @@
             left: 0;
             width: 100%;
             padding: 40px 50px;
-            z-index: 999;
+            z-index: 20;
             display: flex;
             align-items: center; /*moves things horizontal*/
             justify-content: space-between; /*moves things verticale*/
@@ -154,6 +154,17 @@
                 background: rgb(0, 0, 0);
                 color: white;
             }
+            .menu{
+                
+            }
+            .menu ul{
+                z-index: 15;
+                display:grid;
+                grid-template-columns: 100px 100px 100px ;
+                justify-content: end;
+                align-content: center;
+            }
+
             @media (max-width:750px){
                 .showcase,
                 .showcase header{
@@ -166,14 +177,25 @@
                     font-size: 2em;
                 }
             }
+
     </style>
 </head>
 <body>
+    <main class="container">
     <section class="showcase">
         <header>
             <h2 class="logo">Travel</h2>
             <div class="toggle">
                 
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Destination</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
             </div>
         </header>
         
@@ -190,22 +212,15 @@
             <a href="#">Explore</a>
         </div>
         <ul class="social">
-            <li><a href="https://www.facebook.com/hewad.noori" class="fa fa-facebook"></a></li>
-            <li><a href="#" class="fa fa-twitter"></a></li>
-            <li><a href="https://github.com/hewadnoori/Projects" class="fa fa-github">
-            </a></li>
+            <li><a href="https://www.facebook.com/hewad.noori" class="fa fa-facebook" target="_blank"></a></li>
+            <li><a href="#" class="fa fa-twitter" target="_blank"></a></li>
+            <li><a href="https://github.com/hewadnoori/Projects" class="fa fa-github" target="_blank"></a></li>
         </ul>
-        
-        
     </section>
-    <div class="menu">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Destination</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
+    <section class="projects">
+        <img src="imagesVideos/cutePanda.jpg" alt="">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam non provident esse impedit, earum quam laudantium voluptas saepe quod. Dolorem, ex. Maxime labore harum culpa laborum? Totam culpa explicabo veritatis?</p>
+    </section>
+    </main>
 </body>
 </html>
